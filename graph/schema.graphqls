@@ -1,0 +1,37 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type Manager {
+  id: ID!
+  email: String!
+  firstName: String!
+  lastName: String!
+  managemnetsID: Int!
+}
+
+type Management {
+  id: ID!
+  name: String!
+  zip: String!
+  address: String!
+}
+
+type Query {
+  managers: [Manager!]!
+  manager(id: ID!): Manager!
+
+  managements: [Management!]!
+  management(id: ID!): Management!
+}
+
+input NewManager {
+  email: String!
+  firstName: String!
+  lastName: String!
+  managemnetsID: Int!
+}
+
+type Mutation {
+  createManager(input: NewManager!): ID!
+}
